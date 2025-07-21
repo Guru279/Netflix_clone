@@ -22,3 +22,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# ✅ Secure Firebase Keys and other env secrets
+.env-

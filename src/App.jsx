@@ -1,31 +1,22 @@
+import Row from './Row';
+import requests from './requests'
 
-import { useState } from "react";
-import { getDatabase, ref, set } from "firebase/database";
-import app from "../firebase"; // or "../firebase" based on location
-
-const db = getDatabase(app);
-
-function App() {
-  const putData = async () => {
-    try {
-      await set(ref(db, "user/Guru"), {
-        id: 1,
-        name: "Gurunath Mhatugade",
-        age: 25,
-        city:"kolhapur"
-      });
-      console.log("✅ Data added");
-    } catch (error) {
-      console.error("❌ Error:", error);
-    }
-  };
-
+const App = () => {
+  
   return (
-    <>
-      <h1>Hello Guru!</h1>
-      <button onClick={putData}>Put the data</button>
-    </>
+    <div>
+      <h1>There it is the path of Excellance</h1>
+      <Row title="Top rated" fetchUrl={requests.fetchTopRated} />
+      <Row title="Netflix Originals" fetchUrl={requests.fetchNetflixOriginals} />
+      <Row title="Trending Now" fetchUrl={requests.fetchTrending} />
+      <Row title="ActionMovies" fetchUrl={requests.fetchActionMovies} />
+      <Row title="ComedyMovies" fetchUrl={requests.fetchComedyMovies
+      } />
+      <Row title="Documentaries" fetchUrl={requests.fetchDocumentaries} />
+      <Row title="fetchHorrorMovies" fetchUrl={requests.fetchHorrorMovies} />
+      <Row title="RomanceMovies" fetchUrl={requests.fetchRomanceMovies} />
+    </div>
   );
-}
+};
 
 export default App;
